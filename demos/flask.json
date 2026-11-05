@@ -41,6 +41,16 @@
     },
     "dependencies": [
       [
+        "examples/celery/pyproject.toml",
+        "flask",
+        "unconstrained"
+      ],
+      [
+        "examples/celery/pyproject.toml",
+        "celery",
+        "unconstrained"
+      ],
+      [
         "examples/celery/requirements.txt",
         "amqp",
         "==5.1.1"
@@ -63,7 +73,7 @@
       [
         "examples/celery/requirements.txt",
         "celery",
-        "[redis]==5.2.7"
+        "==5.2.7"
       ],
       [
         "examples/celery/requirements.txt",
@@ -144,15 +154,146 @@
         "examples/celery/requirements.txt",
         "werkzeug",
         "==2.3.3"
+      ],
+      [
+        "examples/javascript/pyproject.toml",
+        "flask",
+        "unconstrained"
+      ],
+      [
+        "examples/javascript/pyproject.toml",
+        "pytest",
+        "unconstrained"
+      ],
+      [
+        "examples/tutorial/pyproject.toml",
+        "flask",
+        "unconstrained"
+      ],
+      [
+        "examples/tutorial/pyproject.toml",
+        "pytest",
+        "unconstrained"
+      ],
+      [
+        "pyproject.toml",
+        "blinker",
+        ">=1.9.0"
+      ],
+      [
+        "pyproject.toml",
+        "click",
+        ">=8.1.3"
+      ],
+      [
+        "pyproject.toml",
+        "itsdangerous",
+        ">=2.2.0"
+      ],
+      [
+        "pyproject.toml",
+        "jinja2",
+        ">=3.1.2"
+      ],
+      [
+        "pyproject.toml",
+        "markupsafe",
+        ">=2.1.1"
+      ],
+      [
+        "pyproject.toml",
+        "werkzeug",
+        ">=3.1.0"
+      ],
+      [
+        "pyproject.toml",
+        "asgiref",
+        ">=3.2"
+      ],
+      [
+        "pyproject.toml",
+        "python-dotenv",
+        "unconstrained"
       ]
     ],
-    "unpinned": [],
-    "complexity": 57.3,
+    "unpinned": [
+      [
+        "examples/celery/pyproject.toml",
+        "flask",
+        "unconstrained"
+      ],
+      [
+        "examples/celery/pyproject.toml",
+        "celery",
+        "unconstrained"
+      ],
+      [
+        "examples/javascript/pyproject.toml",
+        "flask",
+        "unconstrained"
+      ],
+      [
+        "examples/javascript/pyproject.toml",
+        "pytest",
+        "unconstrained"
+      ],
+      [
+        "examples/tutorial/pyproject.toml",
+        "flask",
+        "unconstrained"
+      ],
+      [
+        "examples/tutorial/pyproject.toml",
+        "pytest",
+        "unconstrained"
+      ],
+      [
+        "pyproject.toml",
+        "blinker",
+        ">=1.9.0"
+      ],
+      [
+        "pyproject.toml",
+        "click",
+        ">=8.1.3"
+      ],
+      [
+        "pyproject.toml",
+        "itsdangerous",
+        ">=2.2.0"
+      ],
+      [
+        "pyproject.toml",
+        "jinja2",
+        ">=3.1.2"
+      ],
+      [
+        "pyproject.toml",
+        "markupsafe",
+        ">=2.1.1"
+      ],
+      [
+        "pyproject.toml",
+        "werkzeug",
+        ">=3.1.0"
+      ],
+      [
+        "pyproject.toml",
+        "asgiref",
+        ">=3.2"
+      ],
+      [
+        "pyproject.toml",
+        "python-dotenv",
+        "unconstrained"
+      ]
+    ],
+    "complexity": 64.3,
     "factors": {
       "file_volume": 11.8,
       "directory_depth": 20,
       "language_variety": 15,
-      "dependency_volume": 10.5
+      "dependency_volume": 17.5
     },
     "monthly": {
       "2026-10": 9,

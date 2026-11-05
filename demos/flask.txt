@@ -27,23 +27,25 @@ Stars: 74955 | Forks: 17248
   Directory purposes are not inferred without evidence.
 
 [3] STRUCTURAL COMPLEXITY
-  Score: 57.3 / 100 (higher = more structurally complex)
+  Score: 64.3 / 100 (higher = more structurally complex)
   file_volume: 11.8
   directory_depth: 20.0
   language_variety: 15.0
-  dependency_volume: 10.5
+  dependency_volume: 17.5
   Formula: min(30,files/20) + min(20,max_depth*4) +
            min(20,recognized_languages*5) + min(30,dependencies/2)
   This is NOT cyclomatic complexity or a maintainability grade.
 
 [4] DEPENDENCY HEALTH
   Manifests: examples/celery/pyproject.toml, examples/celery/requirements.txt, examples/javascript/pyproject.toml, examples/tutorial/pyproject.toml, pyproject.toml
-  Parsed dependencies: 21
+  Parsed dependencies: 35
+    flask unconstrained (examples/celery/pyproject.toml)
+    celery unconstrained (examples/celery/pyproject.toml)
     amqp ==5.1.1 (examples/celery/requirements.txt)
     async-timeout ==4.0.2 (examples/celery/requirements.txt)
     billiard ==3.6.4.0 (examples/celery/requirements.txt)
     blinker ==1.6.2 (examples/celery/requirements.txt)
-    celery [redis]==5.2.7 (examples/celery/requirements.txt)
+    celery ==5.2.7 (examples/celery/requirements.txt)
     click ==8.1.3 (examples/celery/requirements.txt)
     click-didyoumean ==0.3.0 (examples/celery/requirements.txt)
     click-plugins ==1.1.1 (examples/celery/requirements.txt)
@@ -60,7 +62,19 @@ Stars: 74955 | Forks: 17248
     vine ==5.0.0 (examples/celery/requirements.txt)
     wcwidth ==0.2.6 (examples/celery/requirements.txt)
     werkzeug ==2.3.3 (examples/celery/requirements.txt)
-  Loose/unpinned constraints detected: 0
+    flask unconstrained (examples/javascript/pyproject.toml)
+    pytest unconstrained (examples/javascript/pyproject.toml)
+    flask unconstrained (examples/tutorial/pyproject.toml)
+    pytest unconstrained (examples/tutorial/pyproject.toml)
+    blinker >=1.9.0 (pyproject.toml)
+    click >=8.1.3 (pyproject.toml)
+    itsdangerous >=2.2.0 (pyproject.toml)
+    jinja2 >=3.1.2 (pyproject.toml)
+    markupsafe >=2.1.1 (pyproject.toml)
+    werkzeug >=3.1.0 (pyproject.toml)
+    asgiref >=3.2 (pyproject.toml)
+    python-dotenv unconstrained (pyproject.toml)
+  Loose/unpinned constraints detected: 14
   Health definition: tighter version constraints reduce uncontrolled updates;
   freshness, CVEs, and maintenance status are NOT checked.
 

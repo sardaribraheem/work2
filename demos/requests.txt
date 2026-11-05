@@ -4,7 +4,7 @@ GITHUB REPOSITORY ANALYZER | TRACK B
 Repository: psf/requests
 Description: A simple, yet elegant, HTTP library.
 Default branch: main
-Stars: 54609 | Forks: 11504
+Stars: 54610 | Forks: 11504
 
 [1] TECH STACK (file-count evidence, not GitHub byte percentages)
   Python: 37 source files
@@ -25,20 +25,26 @@ Stars: 54609 | Forks: 11504
   Directory purposes are not inferred without evidence.
 
 [3] STRUCTURAL COMPLEXITY
-  Score: 38.0 / 100 (higher = more structurally complex)
+  Score: 41.0 / 100 (higher = more structurally complex)
   file_volume: 6.5
   directory_depth: 16.0
   language_variety: 15.0
-  dependency_volume: 0.5
+  dependency_volume: 3.5
   Formula: min(30,files/20) + min(20,max_depth*4) +
            min(20,recognized_languages*5) + min(30,dependencies/2)
   This is NOT cyclomatic complexity or a maintainability grade.
 
 [4] DEPENDENCY HEALTH
   Manifests: docs/requirements.txt, pyproject.toml
-  Parsed dependencies: 1
+  Parsed dependencies: 7
     Sphinx ==7.2.6 (docs/requirements.txt)
-  Loose/unpinned constraints detected: 0
+    charset_normalizer >=2,<4 (pyproject.toml)
+    idna >=2.5,<4 (pyproject.toml)
+    urllib3 >=1.26,<3 (pyproject.toml)
+    certifi >=2023.5.7 (pyproject.toml)
+    PySocks >=1.5.6, !=1.5.7 (pyproject.toml)
+    chardet >=3.0.2,<8 (pyproject.toml)
+  Loose/unpinned constraints detected: 6
   Health definition: tighter version constraints reduce uncontrolled updates;
   freshness, CVEs, and maintenance status are NOT checked.
 
