@@ -26,5 +26,14 @@ class AnalyzerTests(unittest.TestCase):
         with patch("urllib.request.urlopen", side_effect=err):
             with self.assertRaisesRegex(analyze.AnalyzerError, "rate limit"):
                 analyze.request("/repos/psf/requests")
+    def test_pep621_dependencies(self):
+        manifest = '[project]\\ndependencies = ["requests>=2.0", "flask==3.0"]\\n'
+        deps = analyze.dependencies({"pyproject.toml": manifest.replace("\\\\n", "\\n")})
+        self.assertEqual(len(deps), 2)
+        self.assertEqual({d[1] for d in deps}, {"requests", "flask"})
+
+    def test_no_manifest(self):
+        self.assertEqual(analyze.dependencies({}), [])
+
 if __name__ == "__main__":
     unittest.main()
