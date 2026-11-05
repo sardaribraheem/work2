@@ -95,6 +95,7 @@ def fetch(repo_url, token=None):
     return {"metadata": metadata, "files": files, "tree_truncated": bool(tree.get("truncated")), "manifests": manifests, "contributors": contributors, "commits": commits, "commit_sample_limit": 300}
 
 def dependencies(manifests):
+    """Parse direct dependencies from common formats; never claim full coverage."""
     found = []
     for path, content in manifests.items():
         if content is None:
@@ -103,7 +104,7 @@ def dependencies(manifests):
         if filename == "package.json":
             try:
                 obj = json.loads(content)
-                for section in ("dependencies", "devDependencies"):
+                for section in ("dependencies", "devDependencies", "optionalDependencies", "peerDependencies"):
                     for name, version in obj.get(section, {}).items():
                         found.append((path, name, str(version)))
             except (ValueError, AttributeError):
@@ -112,9 +113,33 @@ def dependencies(manifests):
             for line in content.splitlines():
                 line = line.strip()
                 if line and not line.startswith("#") and not line.startswith(("-", "git+", "http")):
-                    match = re.match(r"^([A-Za-z0-9_.-]+)\s*(.*)$", line)
+                    match = re.match(r"^([A-Za-z0-9_.-]+)(?:\\[[^]]+\\])?\\s*(.*)$", line)
                     if match:
                         found.append((path, match.group(1), match.group(2).split("#")[0].strip() or "unconstrained"))
+        elif filename in ("pyproject.toml", "Cargo.toml"):
+            try:
+                import tomllib
+                obj = tomllib.loads(content)
+                if filename == "pyproject.toml":
+                    for spec in obj.get("project", {}).get("dependencies", []):
+                        match = re.match(r"^([A-Za-z0-9_.-]+)(?:\\[[^]]+\\])?\\s*(.*)$", spec)
+                        if match:
+                            found.append((path, match.group(1), match.group(2).strip() or "unconstrained"))
+                    for group, specs in obj.get("project", {}).get("optional-dependencies", {}).items():
+                        for spec in specs:
+                            match = re.match(r"^([A-Za-z0-9_.-]+)(?:\\[[^]]+\\])?\\s*(.*)$", spec)
+                            if match:
+                                found.append((path, match.group(1), match.group(2).strip() or "unconstrained"))
+                    for name, constraint in obj.get("tool", {}).get("poetry", {}).get("dependencies", {}).items():
+                        if name.lower() != "python":
+                            found.append((path, name, str(constraint)))
+                else:
+                    for group in ("dependencies", "dev-dependencies", "build-dependencies"):
+                        for name, spec in obj.get(group, {}).items():
+                            version = spec if isinstance(spec, str) else spec.get("version", "Not specified")
+                            found.append((path, name, str(version)))
+            except (ImportError, ValueError, TypeError, AttributeError):
+                pass
         elif filename == "pubspec.yaml":
             section = None
             for line in content.splitlines():
@@ -123,14 +148,27 @@ def dependencies(manifests):
                 elif line and not line.startswith((" ", "#")):
                     section = None
                 elif section:
-                    m = re.match(r"^  ([A-Za-z0-9_]+):\s*(.*)$", line)
+                    m = re.match(r"^  ([A-Za-z0-9_]+):\\s*(.*)$", line)
                     if m and m.group(1) != "flutter":
                         found.append((path, m.group(1), m.group(2) or "nested specification"))
         elif filename == "go.mod":
             for line in content.splitlines():
-                m = re.match(r"^\s*([\w.-]+\.[\w./-]+)\s+(v\S+)", line)
+                m = re.match(r"^\\s*([\\w.-]+\\.[\\w./-]+)\\s+(v\\S+)", line)
                 if m:
                     found.append((path, m.group(1), m.group(2)))
+        elif filename == "composer.json":
+            try:
+                obj = json.loads(content)
+                for group in ("require", "require-dev"):
+                    for name, constraint in obj.get(group, {}).items():
+                        found.append((path, name, str(constraint)))
+            except (ValueError, AttributeError):
+                pass
+        elif filename == "Gemfile":
+            for line in content.splitlines():
+                match = re.match(r'^\\s*gem\\s+["\\']([^"\\']+)["\\']\\s*(?:,\\s*["\\']([^"\\']+)["\\'])?', line)
+                if match:
+                    found.append((path, match.group(1), match.group(2) or "unconstrained"))
     return found
 
 def analyze(data):
