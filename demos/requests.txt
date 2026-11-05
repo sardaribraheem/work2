@@ -1,0 +1,62 @@
+====================================================================
+GITHUB REPOSITORY ANALYZER | TRACK B
+====================================================================
+Repository: psf/requests
+Description: A simple, yet elegant, HTTP library.
+Default branch: main
+Stars: 54609 | Forks: 11504
+
+[1] TECH STACK (file-count evidence, not GitHub byte percentages)
+  Python: 37 source files
+  CSS: 1 source files
+  HTML: 1 source files
+  pytest (evidence: pyproject.toml)
+
+[2] FILE STRUCTURE
+  Files analyzed: 130
+  Major areas:
+    tests: 42 files
+    docs: 26 files
+    src: 20 files
+    .github: 19 files
+    (root): 16 files
+    ext: 7 files
+  File types: .py=37, (none)=20, .rst=16, .md=13, .yml=10, .png=5, .key=4, .cnf=4, .csr=3, .pem=3, .yaml=2, .txt=2
+  Directory purposes are not inferred without evidence.
+
+[3] STRUCTURAL COMPLEXITY
+  Score: 38.0 / 100 (higher = more structurally complex)
+  file_volume: 6.5
+  directory_depth: 16.0
+  language_variety: 15.0
+  dependency_volume: 0.5
+  Formula: min(30,files/20) + min(20,max_depth*4) +
+           min(20,recognized_languages*5) + min(30,dependencies/2)
+  This is NOT cyclomatic complexity or a maintainability grade.
+
+[4] DEPENDENCY HEALTH
+  Manifests: docs/requirements.txt, pyproject.toml
+  Parsed dependencies: 1
+    Sphinx ==7.2.6 (docs/requirements.txt)
+  Loose/unpinned constraints detected: 0
+  Health definition: tighter version constraints reduce uncontrolled updates;
+  freshness, CVEs, and maintenance status are NOT checked.
+
+[5] CONTRIBUTION ACTIVITY (up to 300 recent commits)
+  Monthly commits in retrieved sample:
+  2025-09 | #####                               5
+  2025-10 | ##                                  2
+  2026-01 | #############                       13
+  2026-02 | ###############                     15
+  2026-03 | ###################                 19
+  2026-04 | #################                   17
+  2026-05 | ########################            24
+  2026-06 | #############                       13
+  2026-07 | #######                             7
+  2026-08 | #####                               5
+  2026-09 | ##                                  2
+  2026-10 | #                                   1
+  Top contributors: kennethreitz (1006), Lukasa (610), sigmavirus24 (396), nateprewitt (352), dependabot[bot] (66), slingamn (45), BraulioVM (43), dpursehouse (31)
+  Note: chart covers retrieved commits, not necessarily full history.
+====================================================================
+JSON saved: demos/requests.json

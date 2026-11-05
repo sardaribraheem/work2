@@ -1,0 +1,190 @@
+{
+  "repository": "pallets/flask",
+  "analysis": {
+    "languages": {
+      "Python": 83,
+      "HTML": 20,
+      "CSS": 2
+    },
+    "extensions": {
+      ".json": 2,
+      ".sh": 1,
+      "(none)": 7,
+      ".md": 6,
+      ".yml": 1,
+      ".yaml": 7,
+      ".rst": 79,
+      ".txt": 10,
+      ".png": 5,
+      ".svg": 3,
+      ".py": 83,
+      ".bat": 1,
+      ".toml": 5,
+      ".html": 20,
+      ".sql": 2,
+      ".css": 2,
+      ".typed": 1,
+      ".lock": 1
+    },
+    "folders": {
+      ".devcontainer": 2,
+      "(root)": 9,
+      ".github": 9,
+      "docs": 87,
+      "examples": 42,
+      "src": 26,
+      "tests": 61
+    },
+    "frameworks": {
+      "Flask": "examples/celery/pyproject.toml",
+      "pytest": "examples/javascript/pyproject.toml"
+    },
+    "dependencies": [
+      [
+        "examples/celery/requirements.txt",
+        "amqp",
+        "==5.1.1"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "async-timeout",
+        "==4.0.2"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "billiard",
+        "==3.6.4.0"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "blinker",
+        "==1.6.2"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "celery",
+        "[redis]==5.2.7"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "click",
+        "==8.1.3"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "click-didyoumean",
+        "==0.3.0"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "click-plugins",
+        "==1.1.1"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "click-repl",
+        "==0.2.0"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "flask",
+        "==2.3.2"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "itsdangerous",
+        "==2.1.2"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "jinja2",
+        "==3.1.2"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "kombu",
+        "==5.2.4"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "markupsafe",
+        "==2.1.2"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "prompt-toolkit",
+        "==3.0.38"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "pytz",
+        "==2023.3"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "redis",
+        "==4.5.4"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "six",
+        "==1.16.0"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "vine",
+        "==5.0.0"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "wcwidth",
+        "==0.2.6"
+      ],
+      [
+        "examples/celery/requirements.txt",
+        "werkzeug",
+        "==2.3.3"
+      ]
+    ],
+    "unpinned": [],
+    "complexity": 57.3,
+    "factors": {
+      "file_volume": 11.8,
+      "directory_depth": 20,
+      "language_variety": 15,
+      "dependency_volume": 10.5
+    },
+    "monthly": {
+      "2026-10": 9,
+      "2026-09": 1,
+      "2026-08": 9,
+      "2026-07": 7,
+      "2026-06": 1,
+      "2026-05": 8,
+      "2026-04": 7,
+      "2026-03": 8,
+      "2026-02": 17,
+      "2026-01": 21,
+      "2025-12": 1,
+      "2025-11": 9,
+      "2025-10": 1,
+      "2025-09": 4,
+      "2025-08": 20,
+      "2025-05": 16,
+      "2025-07": 1,
+      "2025-06": 13,
+      "2025-03": 18,
+      "2024-11": 38,
+      "2025-01": 7,
+      "2024-06": 8,
+      "2024-10": 21,
+      "2024-08": 16,
+      "2024-09": 4,
+      "2024-07": 10,
+      "2024-05": 20,
+      "2024-04": 5
+    }
+  },
+  "tree_truncated": false,
+  "commits_sampled": 300
+}
